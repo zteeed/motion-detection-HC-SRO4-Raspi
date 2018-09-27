@@ -1,6 +1,6 @@
 # motion-detection-HC-SRO4-Raspi
 
-Lien de l'article original: https://wiki.minet.net/wiki.internet
+Lien de l'article original: https://wiki.minet.net/wiki/divers/internet
 
 ===== Internet =====
 
