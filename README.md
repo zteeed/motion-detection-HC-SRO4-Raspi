@@ -12,19 +12,19 @@ L'utilité du projet n'est pas l'objectif, c'est de faire joujou afin de remplir
 
 La vidéo du résultat du setup local est sur [nextcloud](https://nextcloud.minet.net)
 
-Matériel dont vous avez besoin: \
-- Une pointe de notion unix \
-- Une Raspi \
-- Un capteur HC-SR04 \
+Matériel dont vous avez besoin: 
+- Une pointe de notion unix 
+- Une Raspi 
+- Un capteur HC-SR04 
 
 En principe, il faut réaliser un pont diviseur de tension afin que l'alimentation de la raspi (5V) soit en phase avec celle dont à besoin le capteur (3.3V) MAIS, après avoir fait sans (#zouloute) ça marche quand même donc osef :D
 
 Il faut noter que les numéros des pins sont reliés à des numéros différents de GPIO (Input/Output).
 Donc pour les branchements faire la même chose pour les puristes sinon bypass le pont diviseur et brancher: \
-- VCC: Pin 2 \
-- Trig: Pin 18 (GPIO 23) \
-- Echo: Pin 20 (GPIO 24) \
-- Gnd: Pin 6 \
+- VCC: Pin 2 
+- Trig: Pin 18 (GPIO 23)
+- Echo: Pin 20 (GPIO 24) 
+- Gnd: Pin 6 
 ![Schéma explicatif](https://wiki.minet.net/_media/wiki/divers/interfacing-raspberry-pi-with-hc-sr04-circuit-diagram-600x361.png?w=800&tok=e5c951)
 
 Le code python pour récupérer la distance et lancer la musique est ci-dessous. Si il manque des librairies, il faut utilier pip. Je précise que ce script tourne sous Python2.7 (cc IB)
@@ -125,12 +125,12 @@ Ensuite on regarde la conf du port sur lequel vous êtes branché, on flush tout
 ```bash
 switch-local>enable
 Password: *type_password*
-switch-local#show run | begin interface GigabitEthernet1/0/43
-switch-local#config terminal
-switch-local(config)#default interface gigabitEthernet 1/0/43
-switch-local(config)#interface gigabitEthernet 1/0/43
-switch-local(config-if)#switchport mode access
-switch-local(config-if)#switchport access vlan 147
+switch-local# show run | begin interface GigabitEthernet1/0/43
+switch-local# config terminal
+switch-local(config)# default interface gigabitEthernet 1/0/43
+switch-local(config)# interface gigabitEthernet 1/0/43
+switch-local(config-if)# switchport mode access
+switch-local(config-if)# switchport access vlan 147
 ```
 
 Maintenant que le port est configuré on choisit une IP non utilsée (suffit de ping et de voir si on a pas de réponse). Si on choisit 192.168.147.5 par exemple, on modifie /etc/network/interfaces:
